@@ -12,6 +12,15 @@ module.exports = {
       nama_posisi: {
         type: Sequelize.STRING
       },
+      status: {
+        type: Sequelize.ENUM('Non Aktif', 'Aktif'),
+        defaultValue: 'Aktif',
+        allowNull: false,
+      },
+      created_id: {
+        type: Sequelize.TINYINT,
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
