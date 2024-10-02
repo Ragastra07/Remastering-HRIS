@@ -10,18 +10,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nama_pt: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       status: {
-        type: Sequelize.TINYINT
+        type: Sequelize.ENUM('Non Aktif', 'Aktif'),
+        defaultValue: 'Aktif',
+        allowNull: false,
+      },
+      created_id: {
+        type: Sequelize.TINYINT,
+        allowNull: true,
       },
       createdAt: {
+        type: Sequelize.DATE,
         allowNull: false,
-        type: Sequelize.DATE
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
+        type: Sequelize.DATE,
         allowNull: false,
-        type: Sequelize.DATE
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
       }
     });
   },
