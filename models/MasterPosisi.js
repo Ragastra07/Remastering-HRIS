@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class master_perusahaan extends Model {
+  class MasterPosisi extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,16 +13,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  master_perusahaan.init({
+  MasterPosisi.init({
     id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV4,
       allowNull: false,
       primaryKey: true
     },
-    nama_pt: {
-      type: Sequelize.STRING,
-      allowNull: false,
+    nama_posisi: {
+      type: Sequelize.STRING
     },
     status: {
       type: Sequelize.ENUM('Non Aktif', 'Aktif'),
@@ -34,18 +33,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
     createdAt: {
-      type: Sequelize.DATE,
       allowNull: false,
-      
+      type: Sequelize.DATE
     },
     updatedAt: {
-      type: Sequelize.DATE,
       allowNull: false,
-      
+      type: Sequelize.DATE
     }
   }, {
     sequelize,
-    modelName: 'master_perusahaan',
+    modelName: 'MasterPosisi',
   });
-  return master_perusahaan;
+  return MasterPosisi;
 };

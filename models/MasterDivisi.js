@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class master_jabatan extends Model {
+  class MasterDivisi extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  master_jabatan.init({
+  MasterDivisi.init({
     id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV4,
       allowNull: false,
       primaryKey: true
     },
-    nama_jabatan: {
+    nama_divisi: {
       type: Sequelize.STRING
     },
     status: {
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'master_jabatan',
+    modelName: 'MasterDivisi',
   });
-  return master_jabatan;
+  return MasterDivisi;
 };
