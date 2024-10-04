@@ -4,10 +4,10 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('master_divisis', {
       id: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        primaryKey: true
       },
       nama_divisi: {
         type: Sequelize.STRING
@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
       },
       created_id: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.SMALLINT,
         allowNull: true,
       },
       createdAt: {
