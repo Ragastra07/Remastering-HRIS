@@ -14,7 +14,32 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   master_posisi.init({
-    nama_posisi: DataTypes.STRING
+    id: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
+    nama_posisi: {
+      type: Sequelize.STRING
+    },
+    status: {
+      type: Sequelize.ENUM('Non Aktif', 'Aktif'),
+      defaultValue: 'Aktif',
+      allowNull: false,
+    },
+    created_id: {
+      type: Sequelize.SMALLINT,
+      allowNull: true,
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE
+    }
   }, {
     sequelize,
     modelName: 'master_posisi',

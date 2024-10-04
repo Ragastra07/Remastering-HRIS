@@ -14,8 +14,35 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   master_perusahaan.init({
-    nama_pt: DataTypes.STRING,
-    status: DataTypes.TINYINT
+    id: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
+    nama_pt: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    status: {
+      type: Sequelize.ENUM('Non Aktif', 'Aktif'),
+      defaultValue: 'Aktif',
+      allowNull: false,
+    },
+    created_id: {
+      type: Sequelize.SMALLINT,
+      allowNull: true,
+    },
+    createdAt: {
+      type: Sequelize.DATE,
+      allowNull: false,
+      
+    },
+    updatedAt: {
+      type: Sequelize.DATE,
+      allowNull: false,
+      
+    }
   }, {
     sequelize,
     modelName: 'master_perusahaan',
