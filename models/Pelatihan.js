@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class resign extends Model {
+  class Pelatihan extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      resign.belongsTo(models.Karyawan, { foreignKey: 'karyawan_id' });
+      Pelatihan.belongsTo(models.Karyawan, { foreignKey: 'karyawan_id' });
       // Add associations for other related models (if applicable)
     }
   }
-  resign.init({
+  Pelatihan.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -32,11 +32,23 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL'
     },
-    keterangan_resign: {
-      type: Sequelize.TEXT,
-      allowNull: true
+    nama_pelatihan: {
+      allowNull: false,
+      type: Sequelize.STRING
     },
-    tgl_resign: {
+    agama: {
+      allowNull: true,
+      type: Sequelize.ENUM(
+        'Internal Perusahaan',
+        'Personal(Individual)',
+        'Pemerintahan(Goverment)'
+      )
+    },
+    tgl_mulai: {
+      allowNull: false,
+      type: Sequelize.DATE
+    },
+    tgl_selesai: {
       allowNull: false,
       type: Sequelize.DATE
     },
@@ -54,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'resign',
+    modelName: 'Pelatihan',
   });
-  return resign;
+  return Pelatihan;
 };
