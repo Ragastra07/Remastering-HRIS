@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class karyawan extends Model {
+  class Karyawan extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       // Add associations for other related models (if applicable)
     }
   }
-  karyawan.init({
+  Karyawan.init({
     id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV4,
@@ -163,7 +163,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     // Data di perusahaan
-    nik_karyawan: {
+    nik_Karyawan: {
       type: Sequelize.STRING,
       allowNull: true
     },
@@ -231,7 +231,7 @@ module.exports = (sequelize, DataTypes) => {
       type: Sequelize.DATE,
       allowNull: true
     },
-    tanggal_karyawan_tetap: {
+    tanggal_Karyawan_tetap: {
       type: Sequelize.DATE,
       allowNull: true
     },
@@ -303,7 +303,7 @@ module.exports = (sequelize, DataTypes) => {
       type: Sequelize.STRING,
       allowNull: true
     },
-    status_karyawan: {
+    status_Karyawan: {
       type: Sequelize.ENUM('Aktif', 'Resign', 'PHK'),
       defaultValue: 'Aktif',
       allowNull: true
@@ -322,7 +322,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'karyawan',
+    modelName: 'Karyawan',
   });
-  return karyawan;
+  return Karyawan;
 };
