@@ -1,7 +1,9 @@
 'use strict';
 const {
+  Sequelize,
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class MasterDivisi extends Model {
     /**
