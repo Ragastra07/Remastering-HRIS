@@ -17,19 +17,6 @@ module.exports = {
       return res.status(500).json({ error: error.message });
     }
   },
-  async create(req, res) {
-    try {
-      // ? destructuring assignment. get properties from req.body object
-      const { name, username, email, password } = req.body;
-      console.log(name, username, email, password);
-      const user = await model.User.create({ name, username, email, password });
-      return res.status(201).json(user);
-    } catch (error) {
-      console.log(error);
-
-      return res.status(500).json({ error: error.message });
-    }
-  },
   async list(req, res) {
     try {
       const users = await model.User.findA();
