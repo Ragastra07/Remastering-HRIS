@@ -1,5 +1,6 @@
 const model = require("../models/index");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 module.exports = {
 	// Register a new user to the system.
   async register(req, res) {
@@ -46,11 +47,11 @@ module.exports = {
         return res.status(401).json({ error: 'Invalid username or password' });
       }
 
-      // // Generate a JWT token
-      // const token = jwt.sign({ userId: user.id }, 'your_secret_key'); //not needed yet
+      // * Generate a JWT token
+      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn : `1h`});
 
 
-      res.status(200).json({ message: 'Login successful', user});
+      res.status(200).json({ message: 'Login successful', user, token});
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: error.message });
