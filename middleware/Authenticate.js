@@ -5,10 +5,11 @@ function authenticateToken (req, res, next) {
 
 	// * extract authorization header from request headers for a JWT
   const authHeader = req.headers['authorization']
+	console.log(authHeader)
 
 	// * check if the authorization header exists and if it contains a JWT token
-  const token = authHeader && authHeader.split('  ')[1]
-
+  const token = authHeader && authHeader.split(' ')[1]
+																					//! 	^ this should be only 1 space 
 	// * if the token is null, send a 401 status (unauthorized) and end the request
   if (token == null) return res.sendStatus(401) // unauthorized
 
