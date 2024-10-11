@@ -1,30 +1,25 @@
 const model = require("../models/index");
 module.exports = {
-  async index(req, res) {
+  async list(req, res) {
     try {
       const { search } = req.query;
 
-      let users = model.User.find();
+    let users = model.User.findAll({
+      order: [['createdAt', 'DESC']],
+      limit: 5
+    });
 
-      if (search) {
-        // ?query builder for search users name
-        users = users.where("name", "like", `%${search}%`);
-      }
-      // ?async query for get data users and releted roles 
-      users = await users.populate("roles").sort("-createdAt").limit(5).exec();
-      return res.status(200).json(users);
+    if (search) {
+      users = users.where({ name: { [Op.like]: `%${search}%` } });
+    }
+
+    const result = await users;
+    return res.status(200).json(result);
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
   },
-  async list(req, res) {
-    try {
-      const users = await model.User.findA();
-      return res.status(200).json(users);
-    } catch (error) {
-      return res.status(500).json({ error: error.message });
-    }
-  },
+  
   async retrieve(req, res) {
     try {
       const { id } = req.params;
