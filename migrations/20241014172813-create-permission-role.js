@@ -1,3 +1,4 @@
+// TABEL PIVOT / JUNCTION
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
