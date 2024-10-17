@@ -4,11 +4,16 @@ const userController = require('../controller/Users');
 const authController = require('../controller/Auth');
 const authenticateToken = require('../middleware/Authenticate');
 
-
+/**
+     // ! BREEZE_494 Express.js
+     *
+     * +Register & +Login
+     */
 // Register
 router.post('/register',authController.register);
 // Login
 router.post('/login', authController.login);
+
 
 // Role
 router.get('/role', authenticateToken, roleController.index);
@@ -22,7 +27,6 @@ router.post('/permission', authenticateToken, permissionController.store);
 router.put('/permission/:id', authenticateToken, permissionController.update);
 router.delete('/permission/:id', authenticateToken, permissionController.destroy);
 
-// Route for Roles
 
 
 // Route for Users
