@@ -1,4 +1,5 @@
 const model = require('../models/index')
+const { Op } = require('sequelize');
 module.exports = {
   // List roles with pagination and search functionality
   async index (req, res) {
