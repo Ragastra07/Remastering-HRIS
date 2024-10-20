@@ -1,3 +1,4 @@
+// ! SPETIE_494 Express.js
 // TABEL PIVOT / JUNCTION
 'use strict';
 /** @type {import('sequelize-cli').Migration} */

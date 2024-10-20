@@ -14,7 +14,11 @@ router.post('/register',authController.register);
 // Login
 router.post('/login', authController.login);
 
-
+/**
+     // ! SPETIE_494 Express.js
+     *
+     * +Role & +Permission
+     */
 // Role
 router.get('/role', authenticateToken, roleController.index);
 router.post('/role', authenticateToken, roleController.store);

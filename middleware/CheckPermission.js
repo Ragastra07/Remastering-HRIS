@@ -1,3 +1,4 @@
+// ! SPETIE_494 Express.js
 const model = require('../models')
 
 module.exports = function (permissions) {
