@@ -40,5 +40,29 @@ router.put('/user/:id', userController.update);
 router.delete('/user/:id', userController.destroy);
 
 // Route for Karyawans
+router.get('/karyawan', authenticateToken, karyawanController.index);
+router.post('/karyawan', karyawanController.store);
+router.put('/karyawan/:id', karyawanController.update);
+
+// Route for Karyawan Resign
+router.get('/karyawan/resign', authenticateToken, resignController.index);
+router.post('/karyawan/resign', authenticateToken, resignController.store);
+router.put('/karyawan/resign/:id', authenticateToken, resignController.update);
+router.delete('/karyawan/resign/:id', authenticateToken, resignController.destroy);
+
+// Route for Karyawan PHK
+router.get('/karyawan/phk', authenticateToken, phkController.index);
+router.post('/karyawan/phk', authenticateToken, phkController.store);
+router.put('/karyawan/phk/:id', authenticateToken, phkController.update);
+router.delete('/karyawan/phk/:id', authenticateToken, phkController.destroy);
+
+// Route for Pelanggaran
+router.get('/pelanggaran', authenticateToken, pelanggaranController.index);
+router.get('/pelanggaran-all', authenticateToken, pelanggaranController.indexAll);
+router.post('/pelanggaran', authenticateToken, pelanggaranController.store);
+router.put('/pelanggaran/:id', authenticateToken, pelanggaranController.update);
+router.delete('/pelanggaran/:id', authenticateToken, pelanggaranController.destroy);
+
+// Route for Karyawan Pendidikan
 
 module.exports = router;
