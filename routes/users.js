@@ -63,6 +63,31 @@ router.post('/pelanggaran', authenticateToken, pelanggaranController.store);
 router.put('/pelanggaran/:id', authenticateToken, pelanggaranController.update);
 router.delete('/pelanggaran/:id', authenticateToken, pelanggaranController.destroy);
 
-// Route for Karyawan Pendidikan
+// Route for Pelatihan
+router.get('/pelatihan', authenticateToken, pelatihanController.index);
+router.get('/pelatihan-all', authenticateToken, pelatihanController.indexAll);
+router.post('/pelatihan', authenticateToken, pelatihanController.store);
+router.put('/pelatihan/:id', authenticateToken, pelatihanController.update);
+router.delete('/pelatihan/:id', authenticateToken, pelatihanController.destroy);
+
+// Route for Karir
+router.get('/karir', authenticateToken, karirController.index);
+router.get('/karir-all', authenticateToken, karirController.indexAll);
+router.post('/karir', authenticateToken, karirController.store);
+router.put('/karir/:id', authenticateToken, karirController.update);
+
+// Route for Divisi
+router.get('/divisi', authenticateToken, divisiController.index);
+router.post('/divisi', authenticateToken, divisiController.store);
+router.put('/divisi/:id', authenticateToken, divisiController.update);
+
+// Route for Jabatan
+router.get('/jabatan', authenticateToken, jabatanController.index);
+router.post('/jabatan', authenticateToken, jabatanController.store);
+router.put('/jabatan/:id', authenticateToken, jabatanController.update);
+
+//
+
+
 
 module.exports = router;
