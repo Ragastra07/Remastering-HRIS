@@ -86,7 +86,10 @@ router.get('/jabatan', authenticateToken, jabatanController.index);
 router.post('/jabatan', authenticateToken, jabatanController.store);
 router.put('/jabatan/:id', authenticateToken, jabatanController.update);
 
-//
+// Route for Posisi
+router.get('/posisi', authenticateToken, posisiController.index);
+router.post('/posisi', authenticateToken, posisiController.store);
+router.put('/posisi/:id', authenticateToken, posisiController.update);
 
 
 
