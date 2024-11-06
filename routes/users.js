@@ -91,6 +91,11 @@ router.get('/posisi', authenticateToken, posisiController.index);
 router.post('/posisi', authenticateToken, posisiController.store);
 router.put('/posisi/:id', authenticateToken, posisiController.update);
 
+// Route for Perusahaan
+router.get('/perusahaan', authenticateToken, perusahaanController.index);
+router.post('/perusahaan', authenticateToken, perusahaanController.store);
+router.put('/perusahaan/:id', authenticateToken, perusahaanController.update);
+
 
 
 module.exports = router;
